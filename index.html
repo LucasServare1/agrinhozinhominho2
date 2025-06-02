@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Da Terra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+ 
+</head>
+
+<body>
+    <header id="inicio">
+        <div class="logo-section">
+            <h1>Da<span class="hhh">Terra</span></h1>
+            <img class="minecraft" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Crect width='50' height='50' fill='%23228B22'/%3E%3Ctext x='25' y='30' text-anchor='middle' fill='white' font-size='20'%3E🌱%3C/text%3E%3C/svg%3E" alt="Da Terra Logo">
+        </div>
+        <div class="cart-section">
+            <button class="cart-btn" onclick="toggleCart()">
+                🛒 Carrinho
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <section>
+        <div class="aff">
+            <div class="search-filter-section">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="search-input"
+                        placeholder="Pesquisar produtos..."
+                    >
+                    <button class="search-btn" onclick="searchProducts()">🔍 Pesquisar</button>
+                </div>
+                
+                <div class="filter-section">
+                    <select class="filter-select" id="category-filter" onchange="filterProducts()">
+                        <option value="">Todas as categorias</option>
+                        <option value="ferramentas">Ferramentas</option>
+                        <option value="frutas">Frutas</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                    
+                    <select class="filter-select" id="price-filter" onchange="filterProducts()">
+                        <option value="">Todos os preços</option>
+                        <option value="0-50">R$ 0 - R$ 50</option>
+                        <option value="50-100">R$ 50 - R$ 100</option>
+                        <option value="100+">R$ 100+</option>
+                    </select>
+                    
+                    <button class="filter-btn" onclick="clearFilters()">Limpar Filtros</button>
+                </div>
+            </div>
+            
+            <h2>A melhor loja para comprar produtos naturais, vindo diretamente "DaTerra". Aqui você pode encontrar
+                frutas, legumes e produtos para sua plantação de forma 100% natural.
+            </h2>
+        </div>
+    </section>
+
+    <h2 class="section-title">🔧 Ferramentas de Jardim</h2>
+    <section class="algo" id="ferramentas-section">
+        <div class="texto" data-category="ferramentas" data-price="397.99">
+            <img class="product-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='100' text-anchor='middle' fill='%23666' font-size='40'%3E🧪%3C/text%3E%3Ctext x='100' y='130' text-anchor='middle' fill='%23666' font-size='16'%3EFertilizante%3C/text%3E%3C/svg%3E" alt="Fertilizante">
+            <h3 class="product-name">Fertilizante</h3>
+            <h3 class="product-price">R$ 397,99</h3>
+            <div class="product-actions">
+                <button class="buy-btn" onclick="buyProduct('Fertilizante', 397.99)">Comprar Agora</button>
+                <button class="cart-add-btn" onclick="addToCart('Fertilizante', 397.99)">Adicionar ao Carrinho</button>
+                <button class="details-btn" onclick="showDetails('Fertilizante', 'Fertilizante orgânico de alta qualidade para suas plantas.', 397.99)">Detalhes</button>
+            </div>
+        </div>
+
+        <div class="texto" data-category="ferramentas" data-price="67.90">
+            <img class="product-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='100' text-anchor='middle' fill='%23666' font-size='40'%3E🔨%3C/text%3E%3Ctext x='100' y='130' text-anchor='middle' fill='%23666' font-size='16'%3EEnxada%3C/text%3E%3C/svg%3E" alt="Enxada">
+            <h3 class="product-name">Enxada</h3>
+            <h3 class="product-price">R$ 67,90</h3>
+            <div class="product-actions">
+                <button class="buy-btn" onclick="buyProduct('Enxada', 67.90)">Comprar Agora</button>
+                <button class="cart-add-btn" onclick="addToCart('Enxada', 67.90)">Adicionar ao Carrinho</button>
+                <button class="details-btn" onclick="showDetails('Enxada', 'Enxada resistente para preparo do solo.', 67.90)">Detalhes</button>
+            </div>
+        </div>
+
+        <div class="texto" data-category="ferramentas" data-price="33.22">
+            <img class="product-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='100' text-anchor='middle' fill='%23666' font-size='40'%3E⛏️%3C/text%3E%3Ctext x='100' y='130' text-anchor='middle' fill='%23666' font-size='16'%3EPá%3C/text%3E%3C/svg%3E" alt="Pá">
+            <h3 class="product-name">Pá</h3>
+            <h3 class="product-price">R$ 33,22</h3>
+            <div class="product-actions">
+                <button class="buy-btn" onclick="buyProduct('Pá', 33.22)">Comprar Agora</button>
+                <button class="cart-add-btn" onclick="addToCart('Pá', 33.22)">Adicionar ao Carrinho</button>
+                <button class="details-btn" onclick="showDetails('Pá', 'Pá duradoura para escavações e plantio.', 33.22)">Detalhes</button>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title">🍎 Produtos Naturais</h2>
+    <section class="algo2" id="produtos-section">
+        <div class="texto" data-category="frutas" data-price="27.90">
+            <img class="product-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='100' text-anchor='middle' fill='%23666' font-size='40'%3E🍒%3C/text%3E%3Ctext x='100' y='130' text-anchor='middle' fill='%23666' font-size='16'%3EAcerola%3C/text%3E%3C/svg%3E" alt="Acerola">
+            <h3 class="product-name">Acerola</h3>
+            <h3 class="product-price">KG: R$ 27,90</h3>
+            <div class="product-actions">
+                <button class="buy-btn" onclick="buyProduct('Acerola', 27.90)">Comprar Agora</button>
+                <button class="cart-add-btn" onclick="addToCart('Acerola', 27.90)">Adicionar ao Carrinho</button>
+                <button class="details-btn" onclick="showDetails('Acerola', 'Acerola fresca e rica em vitamina C.', 27.90)">Detalhes</button>
+            </div>
+        </div>
+        
+        <div class="texto" data-category="frutas" data-price="15.99">
+            <img class="product-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='100' text-anchor='middle' fill='%23666' font-size='40'%3E🥕%3C/text%3E%3Ctext x='100' y='130' text-anchor='middle' fill='%23666' font-size='16'%3ERabanete%3C/text%3E%3C/svg%3E" alt="Rabanete">
+            <h3 class="product-name">Rabanete</h3>
+            <h3 class="product-price">KG: R$ 15,99</h3>
+            <div class="product-actions">
+                <button class="buy-btn" onclick="buyProduct('Rabanete', 15.99)">Comprar Agora</button>
+                <button class="cart-add-btn" onclick="addToCart('Rabanete', 15.99)">Adicionar ao Carrinho</button>
+                <button class="details-btn" onclick="showDetails('Rabanete', 'Rabanete fresco e crocante.', 15.99)">Detalhes</button>
+            </div>
+        </div>
+        
+        <div class="texto" data-category="outros" data-price="60.00">
+            <img class="product-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='100' text-anchor='middle' fill='%23666' font-size='40'%3E🥫%3C/text%3E%3Ctext x='100' y='130' text-anchor='middle' fill='%23666' font-size='16'%3ERação%3C/text%3E%3C/svg%3E" alt="Ração">
+            <h3 class="product-name">Ração</h3>
+            <h3 class="product-price">R$ 60,00</h3>
+            <div class="product-actions">
+                <button class="buy-btn" onclick="buyProduct('Ração', 60.00)">Comprar Agora</button>
+                <button class="cart-add-btn" onclick="addToCart('Ração', 60.00)">Adicionar ao Carrinho</button>
+                <button class="details-btn" onclick="showDetails('Ração', 'Ração nutritiva para animais de fazenda.', 60.00)">Detalhes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para detalhes do produto -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <p id="modal-price"></p>
+            <div class="product-actions">
+                <button class="buy-btn" id="modal-buy-btn">Comprar Agora</button>
+                <button class="cart-add-btn" id="modal-cart-btn">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificação -->
+    <div id="notification" class="notification"></div>
+
+    <script>
+        let cart = [];
+        let allProducts = [];
+
+        // Inicializar produtos
+        function initProducts() {
+            const productElements = document.querySelectorAll('.texto');
+            allProducts = Array.from(productElements).map(el => ({
+                element: el,
+                name: el.querySelector('.product-name').textContent,
+                category: el.dataset.category,
+                price: parseFloat(el.dataset.price)
+            }));
+        }
+
+        // Adicionar ao carrinho
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCartCount();
+            showNotification(`${name} adicionado ao carrinho!`, 'success');
+        }
+
+        // Atualizar contador do carrinho
+        function updateCartCount() {
+            const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = cartCount;
+        }
+
+        // Comprar produto
+        function buyProduct(name, price) {
+            showNotification(`Redirecionando para o pagamento de ${name}...`, 'success');
+            // Aqui você implementaria a lógica de pagamento real
+            setTimeout(() => {
+                alert(`Compra de ${name} por R$ ${price.toFixed(2)} realizada com sucesso!`);
+            }, 1500);
+        }
+
+        // Mostrar detalhes do produto
+        function showDetails(name, description, price) {
+            document.getElementById('modal-title').textContent = name;
+            document.getElementById('modal-description').textContent = description;
+            document.getElementById('modal-price').textContent = `Preço: R$ ${price.toFixed(2)}`;
+            
+            document.getElementById('modal-buy-btn').onclick = () => {
+                closeModal();
+                buyProduct(name, price);
+            };
+            
+            document.getElementById('modal-cart-btn').onclick = () => {
+                closeModal();
+                addToCart(name, price);
+            };
+            
+            document.getElementById('productModal').style.display = 'block';
+        }
+
+        // Fechar modal
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Pesquisar produtos
+        function searchProducts() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            allProducts.forEach(product => {
+                const isVisible = product.name.toLowerCase().includes(searchTerm);
+                product.element.style.display = isVisible ? 'block' : 'none';
+            });
+            
+            if (searchTerm) {
+                showNotification(`Pesquisando por "${searchTerm}"...`, 'success');
+            }
+        }
+
+        // Filtrar produtos
+        function filterProducts() {
+            const categoryFilter = document.getElementById('category-filter').value;
+            const priceFilter = document.getElementById('price-filter').value;
+            
+            allProducts.forEach(product => {
+                let showProduct = true;
+                
+                // Filtro de categoria
+                if (categoryFilter && product.category !== categoryFilter) {
+                    showProduct = false;
+                }
+                
+                // Filtro de preço
+                if (priceFilter) {
+                    const [min, max] = priceFilter.split('-').map(p => p === '+' ? Infinity : parseFloat(p));
+                    if (max === undefined) {
+                        if (product.price < min) showProduct = false;
+                    } else {
+                        if (product.price < min || product.price > max) showProduct = false;
+                    }
+                }
+                
+                product.element.style.display = showProduct ? 'block' : 'none';
+            });
+        }
+
+        // Limpar filtros
+        function clearFilters() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('category-filter').value = '';
+            document.getElementById('price-filter').value = '';
+            
+            allProducts.forEach(product => {
+                product.element.style.display = 'block';
+            });
+            
+            showNotification('Filtros limpos!', 'success');
+        }
+
+        // Alternar carrinho (função placeholder)
+        function toggleCart() {
+            if (cart.length === 0) {
+                showNotification('Seu carrinho está vazio!', 'success');
+                return;
+            }
+            
+            const cartItems = cart.map(item => 
+                `${item.name} - Qtd: ${item.quantity} - R$ ${(item.price * item.quantity).toFixed(2)}`
+            ).join('\n');
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            alert(`Itens no carrinho:\n\n${cartItems}\n\nTotal: R$ ${total.toFixed(2)}`);
+        }
+
+        // Mostrar notificação
+        function showNotification(message, type) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Fechar modal ao clicar fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Pesquisar ao pressionar Enter
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchProducts();
+            }
+        });
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            initProducts();
+        });
+    </script>
+</body>
+
+</html>
